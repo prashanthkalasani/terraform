@@ -4,12 +4,12 @@ data "aws_ami" "joindevops" {
     
     filter {
         name   = "name"
-        values = ["RHEL-9-DevOps-Practice"]
+        values = ["Redhat-9-DevOps-Practice"]
     }
 
     filter {
         name   = "root-device-type"
-        values = ["EBS"]
+        values = ["ebs"]
     }
 
     filter {
@@ -22,10 +22,10 @@ output "ami_id" {
     value = data.aws_ami.joindevops.id
 }
 
-data "aws_instance" "reddis" {
-    instance_id = "i-0d1dc761e5e26c986"
+data "aws_instance" "mongodb" {
+    instance_id = "i-07a245433834199a3"
 }
 
-output "reddis_info" {
-    value = data.aws_instance.reddis.public_ip
+output "mongodb_info" {
+    value = data.aws_instance.mongodb.public_ip
 }
